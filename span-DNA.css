@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+}
+
+.main {
+  width: 200px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateZ(15deg);
+  transform-style: preserve-3d;
+  padding-top: 100px;
+  perspective: 1000px;
+}
+
+.main .line {
+  width: 200px;
+  height: 30px;
+  position: absolute;
+  top: calc(50px * var(--d) - 50px);
+  animation: roll 4s linear infinite calc(0.3s * var(--d));
+}
+
+@keyframes roll {
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.main .line ::before, .main .line ::after{
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.main .line ::before {  
+  background: #e67e22;
+  position: absolute;
+  left: -30px;
+  top:-15px
+}
+
+.main .line ::after {  
+  background: #3498db;
+  position: absolute;
+  right: -30px;
+  top:-15px
+}
+
+
+.main .line span {
+  width: 140px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  top: 15px;
+  left: 30px
+}
